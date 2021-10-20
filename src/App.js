@@ -3,11 +3,13 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from './components/Home/Home';
+import Latest from "./components/Latest/Latest";
 import Login from "./components/Login/Login";
+import Trending from "./components/Trending/Trending";
 
 function App() {
   return (
-    <>
+    <div className="container mx-auto">
       <Header />
       <Router>
         <Switch>
@@ -17,9 +19,15 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/trending">
+            <Trending />
+          </Route>
+          <Route path="/latest">
+            <Latest />
+          </Route>
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 

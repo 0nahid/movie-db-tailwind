@@ -1,19 +1,28 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { FaGoogle } from "react-icons/fa";
+import netflix from "../../Image/netflix.png";
 const Login = () => {
   return (
     <div>
       <Helmet>
         <title>Login - Movie Talks</title>
       </Helmet>
-      <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
-          <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+      <section
+        class="text-gray-600 body-font  "
+        style={{
+          backgroundImage: `url(${netflix})`,
+          backgroundPosition: "center",
+          // backgroundSize: "cover",
+        }}
+      >
+        <div class="container px-5 py-24 mx-auto flex flex-wrap items-center ">
+          <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0   ">
             <h1 class="title-font font-medium text-3xl text-gray-900">
               Welcome to Movie Talks. Here you can find the latest news of
               movie.
             </h1>
+
             <p class="leading-relaxed mt-4">
               To access all the content , you need to be a user of Movie Talks.
             </p>

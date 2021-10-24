@@ -16,7 +16,7 @@ const Home = () => {
         <h1 className="text-6xl text-indigo-500">
           Site is in development mode...
         </h1>
-        <div className="animate-spin ease-linear rounded-full h-12 w-12 border-b-2 border-indigo-500"></div>
+        <div className="animate-spin ease-linear rounded-full h-8 w-8 border-b-2 border-indigo-500"></div>
       </div>
     </div>
   );

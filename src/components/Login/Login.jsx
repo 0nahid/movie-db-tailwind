@@ -1,4 +1,9 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaGoogle } from "react-icons/fa";
@@ -6,7 +11,11 @@ import { FaGoogle } from "react-icons/fa";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // eslint-disable-next-line
+  const [user, setUser] = useState({});
+
   const auth = getAuth();
+  const GoogleProvider = new GoogleAuthProvider();
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -20,7 +29,22 @@ const Login = () => {
     });
     e.preventDefault();
   };
-  
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, GoogleProvider)
+      .then((result) => {
+        const { displayName: userName, photoURL: photo, email } = result.user;
+        const loadUSer = {
+          name: userName,
+          email: email,
+          photo: photo,
+        };
+        setUser(loadUSer);
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <Helmet>
@@ -97,12 +121,15 @@ const Login = () => {
               <button className="text-white w-full bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 Sign Up
               </button>
-              <p className="text-center ">Or,</p>
-              <button className="flex w-full items-center text-center justify-center bg-gray-200 py-2 px-8 mt-1 focus:outline-none hover:bg-gray-400 rounded text-lg">
-                <FaGoogle className="mr-2" />
-                Login with Google
-              </button>
             </form>
+            <p className="text-center ">Or,</p>
+            <button
+              className="flex w-full items-center text-center justify-center bg-gray-200 py-2 px-8 mt-1 focus:outline-none hover:bg-gray-400 rounded text-lg"
+              onClick={handleGoogleSignIn}
+            >
+              <FaGoogle className="mr-2" />
+              Login with Google
+            </button>
           </div>
         </div>
       </section>

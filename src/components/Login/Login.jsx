@@ -1,10 +1,26 @@
-import React from "react";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaGoogle } from "react-icons/fa";
+
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const auth = getAuth();
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
   const handleEmailSignUp = (e) => {
+    createUserWithEmailAndPassword(auth, email, password).then((res) => {
+      const user = res.user;
+      console.log(user);
+    });
     e.preventDefault();
   };
+  
   return (
     <div>
       <Helmet>
@@ -59,6 +75,7 @@ const Login = () => {
                   className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   required
                   autoComplete="false"
+                  onBlur={handleEmailChange}
                 />
                 <label
                   htmlFor="email"
@@ -74,6 +91,7 @@ const Login = () => {
                   className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   required
                   autoComplete="false"
+                  onBlur={handlePasswordChange}
                 />
               </div>
               <button className="text-white w-full bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">

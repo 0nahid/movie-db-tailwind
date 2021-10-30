@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import React from 'react';
 import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
@@ -9,6 +10,7 @@ import Latest from "./components/Latest/Latest";
 import Login from "./components/Login/Login";
 import Trending from "./components/Trending/Trending";
 initializeApp(firebaseConfig);
+
 function App() {
   return (
     <div className="container mx-auto">

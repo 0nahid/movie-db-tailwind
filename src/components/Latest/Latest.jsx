@@ -5,7 +5,7 @@ const Latest = () => {
   return (
     <div>
       <Helmet>
-        <title>Latest - Movie Talks</title>
+        <title>Latest | Movie Talks</title>
       </Helmet>
       <div
         className="shadow-md rounded-md overflow-hidden"

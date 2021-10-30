@@ -57,7 +57,7 @@ const Trending = () => {
   return (
     <div>
       <Helmet>
-        <title>Trending - Movie Talks</title>
+        <title>Trending | Movie Talks</title>
       </Helmet>
       <div className="w-ful md:w-1/2 mx-auto">
         <Doughnut data={data} />

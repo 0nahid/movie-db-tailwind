@@ -20,11 +20,11 @@ const Header = () => {
             <Link to="/latest" className="mr-5 hover:text-gray-900">
               Latest
             </Link>
-            <Link to="/" className="mr-5 hover:text-gray-900">
+            <Link to="/top10" className="mr-5 hover:text-gray-900">
               {" "}
-              Top-100
+              Top-10
             </Link>
-            <Link to="/" className="mr-5 hover:text-gray-900">
+            <Link to="/imdb" className="mr-5 hover:text-gray-900">
               {" "}
               IMDB
             </Link>

@@ -9,6 +9,7 @@ import Home from './components/Home/Home';
 import IMDB from "./components/IMDB/IMDB";
 import Latest from "./components/Latest/Latest";
 import Login from "./components/Login/Login";
+import NoMatch from "./components/NoMatch/NoMatch";
 import Top10 from "./components/Top10/Top10";
 import Trending from "./components/Trending/Trending";
 initializeApp(firebaseConfig);
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="/imdb">
             <IMDB />
+          </Route>
+          <Route path="/*">
+            <NoMatch />
           </Route>
         </Switch>
       </Router>
